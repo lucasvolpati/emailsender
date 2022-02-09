@@ -1,0 +1,25 @@
+{
+    "name": "lucas/projeto_fenix",
+    "description": "This application (class) does the sending of emails used in the phpmailer library.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Email\\Email\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas Alcantara Rodrigues Volpati",
+            "email": "lucas.volpati@outlook.com",
+            "role": "CEO"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    },
+    "config": {
+        "vendor-dir": "lib-ext"
+    }
+}
