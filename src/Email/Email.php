@@ -11,7 +11,7 @@ class Email
 {
     private $mail = stdClass::class;
 
-    public function __construct($host, $userSmtp, $passwd, $smtpSecure, $port, $setFrom, $setFromName, $smtpDebug = null)
+    public function __construct($host, $userSmtp, $passwd, $smtpSecure, $port, $setFrom, $setFromName, $smtpDebug = 2)
     {
         $this->mail = new PHPMailer(true);
 
