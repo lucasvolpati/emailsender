@@ -46,7 +46,7 @@ class Email
             
             return true;
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo} {$e->getMessage()}";
+            echo "A mensagem não pôde ser enviada. Erro: {$this->mail->ErrorInfo} {$e->getMessage()}";
         }
     }
 }

@@ -1,5 +1,5 @@
 <?php
-require "../lib-ext/autoload.php";
+require __DIR__ ."/../vendor/autoload.php";
 
 use Email\Email\Email;
 
@@ -15,10 +15,10 @@ $mail = new Email(
 );
 
 $mail->sendEmail(
-    "destinatario@domain.com.br", //Email que receberá o envio.
-    "Nome Destinatario", //Nome do destinatário.
-    "assunto", //Assunto do e-mail.
-    "Corpo do email (conteudo)", //Conteudo do e-mail, corpo, pode receber html.
-    "emailpararesposta@domains.com.br", //Email do cliente que fez contato, para onde será respondido.
-    "Nome Reply" //Nome do contato.
+    $address, //Quem recebe o email
+    $addressName, //Nome de quem recebe
+    $subject, //Assunto do email.
+    $body, //Conteudo do email, mensagem, etc.
+    $replyMail, //Email do cliente que fez contato, para onde será respondido.
+    $replyName //Nome do contato.
 );
