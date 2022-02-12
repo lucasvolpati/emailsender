@@ -1,4 +1,4 @@
-# emailsender
+# emailsender - PHP
 
 # Notification library via email using PHPMailer class
 
