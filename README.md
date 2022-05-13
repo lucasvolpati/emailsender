@@ -17,12 +17,11 @@ To use the library, just require composer to autoload, invoke the class and call
 
 require __DIR__ . '/vendor/autoload.php';
 
-USE Email\Email\Email;
+USE MasterCode\Email\Email;
 
-$email = new Email(2, "mail.host.com", "your@email.com", "your-pass", "smtp secure (tls/ssl)", "port(587)",
-    "from@email.com", "From Name");
+$mail = new Email("smtps.domain.com", "sender@domain.com", "12345678", "sender@domain.com", "My Name");
 
-$email->sendEmail("Subject", "Content", "reply@email.com", "Replay Name", "address@email.com", "Address Name");
+$mail->sendEmail("receiver@domain.com", "Receiver Name", "Contact By Site", "Here is the formulary message by your site.", "client@email.com", "Client Name");
 ```
 
 Note that the entire configuration of sending the email is using the magic constructor method! Once the constructor method is invoked within your application, your system will be able to trigger the triggers.
@@ -34,6 +33,6 @@ Note that the entire configuration of sending the email is using the magic const
 License
 ----
 
-MIT
+MIT - Make good use.
 
 ****

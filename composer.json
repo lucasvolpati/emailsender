@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Email\\Email\\": "src/"
+            "MasterCode\\": "src/"
         }
     },
     "authors": [
@@ -17,6 +17,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "php": "^7.4.3",
         "phpmailer/phpmailer": "^6.5"
     },
     "config": {

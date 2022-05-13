@@ -1,40 +1,81 @@
 <?php
 
-namespace Email\Email;
-
+namespace MasterCode\Email;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPmailer\PHPmailer\Exception;
 use stdClass;
 
+/**
+ * DEXTER COMPANY | Class Email
+ * @author Lucas A. R. Volpati <lucas.volpati@outlook.com>
+ * @package MasterCode\Email
+ */
 class Email 
 {
+    /**
+     * Config to TLS secure with port 465
+     */
+    public const CONF_SMTP_SECURE = PHPMailer::ENCRYPTION_SMTPS;
+    public const CONF_SMTP_PORT = 465;
+    public const CONF_SMTP_AUTH = true;
+    
     private $mail = stdClass::class;
 
-    public function __construct($host, $userSmtp, $passwd, $smtpSecure, $port, $setFrom, $setFromName, $smtpDebug = 2)
+    /**
+     * @var string $hostName
+     * @var string $userSmtp
+     * @var string $passwd
+     * @var mixed $setSenderEmail
+     * @var string $setSenderName
+     * @var int|null $smtpDebug
+     */
+    public function __construct(
+        string $hostName, 
+        string $userSmtp, 
+        string $passwd, 
+        string $setSenderEmail, 
+        string $setSenderName, 
+        int $smtpDebug = null //2 for complete debug
+        )
     {
         $this->mail = new PHPMailer(true);
 
         //Server settings
         $this->mail->SMTPDebug = $smtpDebug;
         $this->mail->isSMTP();
-        $this->mail->Host       = $host;                   
-        $this->mail->SMTPAuth   = true;                                  
+        $this->mail->Host       = $hostName;                   
+        $this->mail->SMTPAuth   = self::CONF_SMTP_AUTH;                                  
         $this->mail->Username   = $userSmtp;
         $this->mail->Password   = $passwd;
-        $this->mail->SMTPSecure = $smtpSecure;
-        $this->mail->Port       = $port;
-        $this->mail->setFrom($setFrom, $setFromName);
+        $this->mail->SMTPSecure = self::CONF_SMTP_SECURE;
+        $this->mail->Port       = self::CONF_SMTP_PORT;
+        $this->mail->setFrom($setSenderEmail, $setSenderName);
 
         
     }
 
-
-    public function sendEmail($address, $addressName, $subject, $body, $replyMail, $replyName) {
+    /**
+     * @var string $emailReceiver
+     * @var string $receiverName
+     * @var string $subject
+     * @var mixed $body
+     * @var string $replyMail
+     * @var string $replyName
+     */
+    public function sendEmail(
+        string $emailReceiver, 
+        string $receiverName, 
+        string $subject, 
+        mixed $body, 
+        string $replyMail, 
+        string $replyName
+        ): bool
+    {
         try {
                     
             //Recipients
-            $this->mail->addAddress($address, $addressName);
+            $this->mail->addAddress($emailReceiver, $receiverName);
             $this->mail->addReplyTo($replyMail, $replyName);
         
             //Content
