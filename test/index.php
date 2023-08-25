@@ -1,9 +1,9 @@
 <?php
 require __DIR__ ."/../vendor/autoload.php";
 
-use MasterCode\Email\Email;
+use EmailSender\Dispatch;
 
-$mail = new Email(
+$mail = new Dispatch(
     "smtps.domain.com",
     "sender@domain.com",
     "12345678",

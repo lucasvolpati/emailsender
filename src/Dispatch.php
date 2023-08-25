@@ -1,6 +1,6 @@
 <?php
 
-namespace MasterCode\Email;
+namespace EmailSender;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPmailer\PHPmailer\Exception;
@@ -11,7 +11,7 @@ use stdClass;
  * @author Lucas A. R. Volpati <lucas.volpati@outlook.com>
  * @package MasterCode\Email
  */
-class Email 
+class Dispatch
 {
     /**
      * Config to TLS secure with port 465
@@ -19,7 +19,8 @@ class Email
     public const CONF_SMTP_SECURE = PHPMailer::ENCRYPTION_SMTPS;
     public const CONF_SMTP_PORT = 465;
     public const CONF_SMTP_AUTH = true;
-    
+
+    /*** @var PHPMailer */
     private $mail = stdClass::class;
 
     /**
